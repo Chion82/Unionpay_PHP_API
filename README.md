@@ -16,6 +16,15 @@ Author: Chion82 <sdspeedonion@gmail.com>
 
 ##Usage
 
+* Generate RSA keys by running: (Those keys are used for AJAX encryption.)
+
+```
+$ openssl genrsa -out rsa_4096_priv.pem 4096
+$ openssl rsa -pubout -in rsa_4096_priv.pem -out rsa_4096_pub.pem
+``
+
+* Copy ```rsa_4096_pub.pem``` to ```api/unionpay/pubkey/rsa_4096_pub.pem``` .
+
 * Follow the comments and implement functions at ```api/unionpay/custom_func.php``` .
 
 * Configurate the Unionpay online payment parameters by modifying the constants located at ```api/unionpay/func/SDKConfig.php``` .
