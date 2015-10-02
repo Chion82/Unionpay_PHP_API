@@ -1,4 +1,21 @@
-var rsa_cer_url = '/api/unionpay/pubkey/rsa_4096_pub.pem';
+var rsa_cer_url = '/api/unionpay/pubkey/rsa_4096_pub.pem';		//download link to the RSA public key.
+
+/*
+About the result object passed to the callback functions:
+{
+	status : 200,			//200 for success, -1 for failure
+	message : "Success"
+}
+
+if failure occurs, the result object should be:
+{
+	status : -1,
+	message : "Error message",
+	error_resp_code : -1,			//Error code from the Unionpay server
+	error_resp_msg : "Error msg from the Unionpay server"
+}
+
+*/
 
 
 var Unionpay = {
@@ -7,7 +24,7 @@ var Unionpay = {
 		Check if the Unionpay account supports online payment.
 
 		acc_type: 01
-		acc_no: card number
+		acc_no: bank card number
 		callback: callback function to which the result object will be passed
 	*/
 	check_account : function(acc_type, acc_no, callback) {
@@ -30,21 +47,21 @@ var Unionpay = {
 
 		acc_type: 01
 		acc_no: card number
-		certif_tp : 01：身份证
-					02：军官证
-					03：护照
+		certif_tp : 01：身份证	ID card
+					02：军官证	military card
+					03：护照		passport
 					04：回乡证
 					05：台胞证
 					06：警官证
 					07：士兵证
-					99：其它证件
-		certif_id : 证件号码
-		customer_name : 持卡人姓名
-		phone_no : 手机号
-		pin : 持卡人密码
-		cvn2 : CVN2 借记卡则为空字符串
-		expired : 有效期 借记卡则为空字符串
-		redirect_url : 开通在线支付后，浏览器的跳转地址
+					99：其它证件	others
+		certif_id : 证件号码		certification ID
+		customer_name : 持卡人姓名	name of the card holder
+		phone_no : 手机号		mobile phone number of the card holder
+		pin : 持卡人密码		bank card password
+		cvn2 : CVN2 借记卡则为空字符串	CVN2, null string if debit card
+		expired : 有效期 借记卡则为空字符串	expired, null string if debit card
+		redirect_url : 开通在线支付后，浏览器的跳转地址	redirection url to go after activating Unionpay online payment.
 	*/
 	activate : function(acc_type, acc_no, certif_tp, certif_id, customer_name, phone_no, pin, cvn2, expired, redirect_url) {
 		var card_info = {
@@ -69,18 +86,18 @@ var Unionpay = {
 
 		acc_type: 01
 		acc_no: card number
-		certif_tp : 01：身份证
-					02：军官证
-					03：护照
+		certif_tp : 01：身份证	ID card
+					02：军官证	military card
+					03：护照		passport
 					04：回乡证
 					05：台胞证
 					06：警官证
 					07：士兵证
 					99：其它证件
-		certif_id : 证件号码
-		customer_name : 持卡人姓名
-		phone_no : 手机号
-		pin : 持卡人密码
+		certif_id : 证件号码		certification ID
+		customer_name : 持卡人姓名	name of the card holder
+		phone_no : 手机号		mobile phone number to send SMS to
+		pin : 持卡人密码		bank card password
 		cvn2 : CVN2 借记卡则为空字符串
 		expired : 有效期 借记卡则为空字符串
 		callback: callback function to which the result object will be passed

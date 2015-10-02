@@ -7,7 +7,9 @@ $SDK_DATE_ENC = 0;
 $SDK_PAN_ENC = 0;
  
 
- //TODO : 请编辑以下常量
+//TODO : 请编辑以下常量
+//TODO : Please fill out these contants. Most of these are the same as the international version SDK.
+//The custom contants you have to modify are at the bottom.
 
 // 签名证书路径
 $SDK_SIGN_CERT_PATH = '../../../myfolder/cer/700000000000001_acp.pfx';
@@ -63,16 +65,22 @@ $SDK_Card_Request_Url = '';
 //App交易地址
 $SDK_App_Request_Url = 'https://101.231.204.80:5000/gateway/api/appTransReq.do ';
 
+//THESE ARE COSTOM CONSTANTS WHICH DO NOT EXIST IN THE INTERNATIONAL VERSION SDK.
+
 //商户代码
+//Your merchant ID
 $SDK_MER_ID = '305510170111001';
 
 //RSA私钥地址（用于解密JS传入的加密数据）
+//Path to the RSA private key which is used to decrypt data passed from frontend JavaScript.
 $PRIVATE_KEY_PATH = '../../../myfolder/key/rsa_4096_priv.pem';
 
 //RSA公钥地址（用于JS加密银行卡敏感信息）
+//Path to the RSA public key.
 $PUBLIC_KEY_PATH = '../../../myfolder/key/rsa_4096_pub.pem';
 
 //回调测试文件
+//Path to the test file where debug info will be stored.
 $CALLBACK_TEST_FILE = '../../../myfolder/files/last_callback_data.txt';
 
 ?>
