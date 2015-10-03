@@ -37,4 +37,6 @@ $ openssl rsa -pubout -in rsa_4096_priv.pem -out rsa_4096_pub.pem
 
 ##Changelog
 
+* Add translated usage guide in source code comment.
+
 * Change all constants at ```api/unionpay/func/SDKConfig.php``` to global variables in case the PHP version on the server is too low.
